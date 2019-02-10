@@ -1,4 +1,11 @@
 <?php
+
+foreach ($_SERVER as $key => $value) {
+    if (substr($key, 0, 9) === 'REDIRECT_') {
+        $_SERVER[str_replace('REDIRECT_', '', $key)] = $value;
+    }
+}
+
 require './vendor/autoload.php';
 
 use RedBeanPHP\R;
